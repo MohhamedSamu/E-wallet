@@ -1,0 +1,41 @@
+
+
+span{
+    color:rgb(7, 7, 255);
+    pointer-events: all;
+}
+
+span:hover{
+    color:rgb(0, 0, 155);
+    text-decoration: underline;
+}
+
+@media (max-width: 1000px){
+    .row{
+        display: block;
+        
+        .card{
+            margin-top: 5%;
+        }
+    }
+}
+
+@media (max-width: 500px){
+    .row{
+        display: block;
+        
+        .card{
+            margin-top: 5%;
+        }
+    }
+}
+
+@media (max-width: 250px){
+    .row{
+        display: block;
+        
+        .card{
+            margin-top: 5%;
+        }
+    }
+}
