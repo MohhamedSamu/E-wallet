@@ -4,7 +4,7 @@ Integrantes:
 # Documentation
 programing languaes:
 - js
-- scss
+- scss;
 libraries used:
 - Chart.js -> https://www.chartjs.org/
 - Bootstrap -> https://getbootstrap.com/
