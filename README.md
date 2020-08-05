@@ -1,6 +1,7 @@
 # e-Wallet 
 Integrantes:
 - Samuel Fernando Calderón Reyes.
+- Mario Daniel Diaz Amaya.
 # Documentation
 programing languaes:
 - js

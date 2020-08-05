@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>e-Wallet</title>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/navbar.css">
+  </head>
+  <body class="bg-ligth">
+    <div id="menu">
+        <nav>
+            <ul>
+                <li ><a>Inicio<i class="material-icons">bar_chart</i></a></li>
+                <li ><a>Cuentas<i class="material-icons">attach_money</i></a></li>
+                <li><a>Ingresos<i class="material-icons">trending_up</i></a></li>
+                <li><a href="gastos.html">Gastos<i class="material-icons">trending_down</i></a></li>
+                <li class="current"><a href="configuraciones.html">Configuracion<i ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 0 0-5.86 2.929 2.929 0 0 0 0 5.858z"/>
+                  </svg></i></a></li>
+                <li class="cuenta"><a>Salir<i class="material-icons">login</i></a></li>
+                <li class="cuenta"><a>Cuenta<i class="material-icons">account_circle</i></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="offset-sm-5">
+        <h1>Tipo de pago </h1>
+    </div>
+    <!-- tipos de pagos  -->
+    <div class="card-group border-left-primary">
+        <!-- card 1 -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Efectivo 
+                <svg  width="1.4em" height="2em" viewBox="0 0 16 16" class="bi bi-cash-stack mx-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z"/>
+                <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z"/>
+                <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+              </svg></h5>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                  Elegir opción 
+                </label>
+              </div>
+              <hr>
+            <button type="button" class="btn btn-primary">Guardar</button>
+
+        </div>
+        </div>
+        <!-- card 2 -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cuenta de ahorro 
+                <svg width="1.5em" height="2em" viewBox="0 0 16 16" class="bi bi-wallet2 mx-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 4l10-3A1.5 1.5 0 0 1 14 2.5v2h-1v-2a.5.5 0 0 0-.5-.5L5.833 4H2.5z"/>
+                <path fill-rule="evenodd" d="M1 5.5A1.5 1.5 0 0 1 2.5 4h11A1.5 1.5 0 0 1 15 5.5v8a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 13.5v-8zM2.5 5a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-11z"/>
+              </svg></h5>
+            
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Elegir opción
+                </label>
+              </div>
+            
+            <select class="form-control form-control" disabled> 
+                <option >Cuenta #1</option>
+            </select>
+            <hr>
+            <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+        </div>
+        <!-- card 3 -->
+        <div class="card ">
+          <div class="card-body">
+            <h5 class="card-title">Tarjeta de crédito 
+                <svg width="1.5em" height="2em" viewBox="0 0 16 16" class="bi bi-credit-card mx-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+              </svg></h5>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" >
+                <label class="form-check-label" for="exampleRadios3">
+                    Elegir opción
+                </label>
+              </div>
+            <select class="form-control form-control" disabled> 
+                <option >Tarjeta #1</option>
+              </select>
+              <hr>
+              <button type="button" class="btn btn-primary">Guardar</button>
+
+        </div>
+        </div>
+      </div>
+<!-- grafica -->
+<div class="cointainer-sm">
+    <div class="offset-sm-5">
+        <h1>Balance </h1>
+    </div>
+</div>
+<div class="container-sm py-3">
+
+    <div class="row lg">
+        <div class="col">
+            <div class="card">
+                <div class="card-title offset-md-4 py-3">
+                    <h3 class="ingresosTitle">balance actual</h3>
+                </div>
+                <div class="card-body">
+                    <canvas id="ingresosChart"></canvas>
+                </div>
+            </div>
+        </div>
+       
+
+</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/graficas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+    <footer class="bg-white text-black-50 text-center py-4 shadow-lg">
+        E-WALLET | copyright 2020
+    </footer>
+</body>
+</html>
