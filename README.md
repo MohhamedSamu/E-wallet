@@ -8,5 +8,6 @@ programing languaes:
 - scss
 
 libraries used:
+- Google material icons -> https://material.io/resources/icons/?style=baseline
 - Chart.js -> https://www.chartjs.org/
 - Bootstrap -> https://getbootstrap.com/
