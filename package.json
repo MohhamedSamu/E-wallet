@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CheleNigga1/e-Wallet#readme",
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "gulp-cli": "^2.3.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "save-dev": "0.0.1-security"
