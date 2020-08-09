@@ -10,6 +10,7 @@ function style() {
     .pipe(browserSync.stream());
 }
 
+// esto es un comentario
 function watch() {
     browserSync.init({
         server: {
