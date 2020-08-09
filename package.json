@@ -1,0 +1,31 @@
+{
+  "name": "eWallet",
+  "version": "1.0.0",
+  "description": "Integrantes:\r - Samuel Fernando Calderón Reyes.\r - Mario Daniel Diaz Amaya.\r # Documentation\r programing languaes:\r - js\r - scss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CheleNigga1/e-Wallet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CheleNigga1/e-Wallet/issues"
+  },
+  "homepage": "https://github.com/CheleNigga1/e-Wallet#readme",
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "save-dev": "0.0.1-security"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  }
+}
