@@ -16,7 +16,8 @@ function watch() {
         server: {
            baseDir: "./src",
            index: "/index.html"
-        }
+        },
+        port: 5555
     });
     gulp.watch('src/scss/**/*.scss', style)
     gulp.watch('src/*.html').on('change',browserSync.reload);
