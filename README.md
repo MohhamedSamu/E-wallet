@@ -2,7 +2,8 @@
 Integrantes:
 - Samuel Fernando Calderón Reyes.
 - Mario Daniel Diaz Amaya.
--José Alexander Cruz Alvarado.
+- José Alexander Cruz Alvarado.
+- Kevin Alexander Argueta Leiva.
 # Documentation
 programing languaes:
 - js
