@@ -17,49 +17,45 @@
                             <input type="text" class="form-control" id="nombre" value="" pattern="^[a-zA-Z\s]+$" title="Solo se acepta letras"   placeholder="Nombres" required />
                         </div>
                         <div class="form-group">
-                    <input type="text" class="form-control" id="apellido" value="" pattern="^[a-zA-Z\s]+$" title="Solo se acepta letras"  
-                    placeholder="Apellidos" required />
-                </div>
-                <div class="form-group">    
-                    <input type="email" class="form-control" id="correo" value="" title="NombreCorreo@dominio"   placeholder="Correo Eléctronico" required>
-                </div>
-                <div class="form-group">
-                <input type="number" class="form-control" id="telefono" value="" pattern="^[0-9]{4}-?[0-9]{4}$" title="Solo acepta números en el 
-                siguiente formato: 2222-2222"   placeholder="Número de Teléfono" required>
+                            <input type="text" class="form-control" id="apellido" value="" pattern="^[a-zA-Z\s]+$" title="Solo se acepta letras" placeholder="Apellidos" required />
+                        </div>
+                        <div class="form-group">    
+                            <input type="email" class="form-control" id="correo" value="" title="NombreCorreo@dominio"   placeholder="Correo Eléctronico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="telefono" value="" pattern="^[0-9]{4}-?[0-9]{4}$" title="Solo acepta números en el siguiente formato: 2222-2222"   placeholder="Número de Teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="direccion" value="" title="Dirección" placeholder="Dirección de residencia" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="dui" value="" pattern="^[0-9]{8}-?[0-9]{1}$" title="Solo acepta números en el 
+                            siguiente formato: 12345678-9" placeholder="Número de DUI" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="nit" value="" pattern="^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$" title="Solo acepta números en el 
+                            siguiente formato: 0101-010101-101-1" placeholder="Número de NIT" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Seleccione su fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"   title="Seleccione su fecha de nacimiento" 
+                            placeholder="Ingrese su fecha de nacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" value="" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})" title="Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero" placeholder="Contraseña" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary px-5">Submit</button>
+                        <a class="btn btn-primary px-5" href="login.html">Avanzar (provicional)</a>
+                    </fieldset>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control" id="direccion" value="" title="Dirección" placeholder="Dirección de residencia" required>
-            </div>
-            <div class="form-group">
-                <input type="number" class="form-control" id="dui" value="" pattern="^[0-9]{8}-?[0-9]{1}$" title="Solo acepta números en el 
-                siguiente formato: 12345678-9" placeholder="Número de DUI" required>
-            </div>
-            <div class="form-group">
-                <input type="number" class="form-control" id="nit" value="" pattern="^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$" title="Solo acepta números en el 
-                siguiente formato: 0101-010101-101-1" placeholder="Número de NIT" required>
-            </div>
-            <div class="form-group">
-                <label for="">Seleccione su fecha de nacimiento</label>
-                <br>
-                <input type="date" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento"   title="Seleccione su fecha de nacimiento" 
-                placeholder="Ingrese su fecha de nacimiento" required>
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" value="" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})" title="Su 
-                contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero"
-                  placeholder="Contraseña" required>
-                </div>
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                    <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary px-5">Submit</button>
-            <a class="btn btn-primary px-5" href="login.html">Avanzar (provicional)</a>
-        </fieldset>
-        </form>
-    </div>
-</div>
+        </div>
+    </main>
 </body>
 </html>
