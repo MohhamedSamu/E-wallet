@@ -2,64 +2,62 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/bs.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos</title>
 </head>
-<body class="formdatos">
-    <form action="index.html" method="" class="nuevo_inicio">
-        <center><h1>Ingrese los datos de la cuenta</h1></center>
-        <fieldset id="datos">
-            <legend>Datos</legend>
-            <table border="0">
-                <tr>
-                    <td>Cuenta de Ahorro:</td>
-                    <td>
-                        <select name="cuenta" id="cuenta" required>
-                            <option selected value="0">Seleccione su cuenta </option>
-                            <option value="1">Banco Agricola</option>
-                            <option value="2">Banco Davivienda</option>
-                            <option value="3">Banco Cuscatlán</option>
-                            <option value="4">Banco Hipotecario</option>
-                            <option value="5">CitiBank</option>
-                            <option value="6">Banco de fomento agropecuario</option>
-                            <option value="7">Banco Promerica</option>
-                            <option value="8">Banco de América Central</option>
-                            <option value="9">Banco Azul</option>
-                            <option value="10">Banco Atlátida</option>
-                            <option value="11">Banco Industrial</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Nacionalidad:</td>
-                    <td>
-                        <input type="text" list="nacionalidad" class="control2" required>
-                        <datalist id="nacionalidad">
-                            <option value="Salvadoreño">Salvadoreño(a)</option>
-                            <option value="Hondureño">Hondureño(a)</option>
-                            <option value="Guatemalteco">Guatemalteco(a)</option>
-                            <option value="Costarricense">Costarricense(a)</option>
-                            <option value="Nicaraguense">Nicaragüense(a)</option>
-                            <option value="panameño">panameño(a)</option>
-                        </datalist>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Número de cuenta: </td>
-                    <td>
-                        <input type="number" name="num_cuenta" id="num_cuenta" class="control2" placeholder="Número de cuenta" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Efectivo en la cuenta</td>
-                    <td>
-                        <input type="number" name="monto" id="monto" class="control2" placeholder="Monto actual de la cuenta" required>
-                    </td>
-                </tr>
-            </table>
-            <button id="boton" type="submit">Enviar Información</button>
+<body class="bg-info">
+    <main role="main" class="container my-auto">
+        <div class="row my-5">
+            <div class="card col-lg-6 offset-lg-3 col-md-7 offset-md-2 col-12 p-5">
+                <form action="index.html" method="" class="nuevo_inicio">
+                    <h1 class="">Ingrese los datos de la cuenta</h1>
+                    <fieldset id="datos">
+                        <h3>Datos</h3>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="cuenta">Cuenta</label>
+                            </div>
+                            <select name="cuenta" id="cuenta" required class="custom-select">
+                                <option selected>Seleccione su cuenta</option>
+                                <option value="1">Banco Agricola</option>
+                                <option value="2">Banco Davivienda</option>
+                                <option value="3">Banco Cuscatlán</option>
+                                <option value="4">Banco Hipotecario</option>
+                                <option value="5">CitiBank</option>
+                                <option value="6">Banco de fomento agropecuario</option>
+                                <option value="7">Banco Promerica</option>
+                                <option value="8">Banco de América Central</option>
+                                <option value="9">Banco Azul</option>
+                                <option value="10">Banco Atlátida</option>
+                                <option value="11">Banco Industrial</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="nacionalidad">Nacionalidad</label>
+                            </div>
+                            <select name="nacionalidad" id="nacionalidad" required class="custom-select">
+                                <option value="Salvadoreño">Salvadoreño(a)</option>
+                                <option value="Hondureño">Hondureño(a)</option>
+                                <option value="Guatemalteco">Guatemalteco(a)</option>
+                                <option value="Costarricense">Costarricense(a)</option>
+                                <option value="Nicaraguense">Nicaragüense(a)</option>
+                                <option value="panameño">panameño(a)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">    
+                            <input type="number" class="form-control" id="num_cuenta" name="num_cuenta" placeholder="Número de cuenta" required>
+                        </div>
+                        <div class="form-group">    
+                            <input type="number" class="form-control" name="monto" id="monto" placeholder="Monto actual de la cuenta" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary px-5">Submit</button>
+            <a class="btn btn-primary px-5" href="index.html">Avanzar (provicional)</a>
         </fieldset>
     </form>
+</div>
+</div>
+</main>
 </body>
 </html>
