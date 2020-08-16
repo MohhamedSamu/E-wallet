@@ -1,70 +1,132 @@
+$bgColor: #3449ff;
+$fontcolor: rgb(226,226,226);
 //ediciones generales
 *{	
     margin:0;
-	padding:0;
+    padding:0;
+    box-sizing: border-box;
 }
 
-#menu{
-    background-color: #3449ff;
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: $bgColor;
+    color: $fontcolor;
 
-    nav {
-        ul{
-            list-style-type: none;
-            width: 100%;
-            overflow:hidden;
-            
-            li{
-                float: left;
-                text-align: center;
-            }
-
-            .cuenta{
-                float: right;
-                text-align: center;
-            }
-        }
-        
-        a{
-            color: white;
-            display: block;
-            text-decoration:none;
-            padding: 3vh 3vw;
-            transition: 0.5s;
-        }
-
-        i{
-            display: block;
-        }
-        
-        a:hover{
-            background:#6f7dff;
-        }    
+    .logo{
+        color: $fontcolor;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
     }
-}
+
+    .nav-links{
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+        a{
+            color:$fontcolor;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            font-size:14px;
+
+            i{
+                pointer-events: none;
+            }
+        }
+
+        li{
+            list-style: none;
+        }
+    }
+
+    i{
+        display: block;
+    }
     
-@media (max-width: 1200px){
-    nav{
-        a{
-            padding: 0.5vh 2.5vw;
+    .burger{
+        display: none;
+        div{
+            width: 25px;
+            height: 2.5px;
+            background-color: $fontcolor;
+            margin: 5px;
+            transition: all 0.3s ease;
         }
+    }
+    
+}
+@media screen and (max-width:1024px){
+    nav{
+        .nav-links{
+            width: 45%;
+        }
+    }
+}
+@media screen and ( max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    nav{
+        .nav-links{
+            position: absolute;
+            right: 0;
+            height: 92vh;
+            top: 8vh;
+            background-color: $bgColor;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+            width: 50%;
+            transform:translateX(100%);
+            transition: transform 0.5s ease-in;
+
+            a{
+                letter-spacing: 4px;
+            }
+
+            li{
+                opacity: 0;
+            }
+        }
+
+        .burger{
+            display: block;
+            cursor: pointer;
+        }
+        .toggle .line1{
+            transform: rotate(-45deg) translate(-5px,6px);    
+        }
+        .toggle .line2{
+            opacity: 0;
+        }
+        .toggle .line3{
+            transform: rotate(45deg) translate(-5px,-6px);    
+        }
+    }
+    nav{
+        .nav-active{
+            transform:translateX(0%);
+        }
+    }
+
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
     }
 }
 
-@media (max-width: 600px){
-    nav{
-        a{
-            padding: 0.5vh 2vw;
-        }
-    }
-}
-
-@media (max-width: 300px){
-    nav{
-        a{
-            padding: 0.5vh 1.5vw;
-        }
-    }
-}
 
 //iconos
 @font-face {
@@ -85,8 +147,4 @@
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
-}
-
-.current{
-    background:#6f7dff;
 }
