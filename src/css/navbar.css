@@ -8,7 +8,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #3449ff;
+  background-color: #394eff;
   color: #e2e2e2; }
   nav .logo {
     color: #e2e2e2;
@@ -21,12 +21,16 @@ nav {
     justify-content: space-around;
     width: 30%; }
     nav .nav-links a {
+      padding-top: 2vh;
+      width: 7rem;
+      display: flex;
       color: #e2e2e2;
       text-decoration: none;
       letter-spacing: 1.5px;
       font-size: 14px; }
       nav .nav-links a i {
-        pointer-events: none; }
+        pointer-events: none;
+        display: inline-block; }
     nav .nav-links li {
       list-style: none; }
   nav i {
@@ -42,27 +46,73 @@ nav {
 
 @media screen and (max-width: 1024px) {
   nav .nav-links {
-    width: 45%; } }
+    width: 45%; }
+    nav .nav-links a {
+      width: 6rem; } }
 
 @media screen and (max-width: 768px) {
   body {
     overflow-x: hidden; }
   nav .nav-links {
     position: absolute;
-    right: 0;
+    left: 0;
     height: 92vh;
     top: 8vh;
-    background-color: #3449ff;
+    background-color: #f2f2f2;
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    align-items: center;
+    align-items: right;
+    z-index: 1000;
+    width: 45%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease; }
+    nav .nav-links a {
+      letter-spacing: 3px;
+      font-size: 16px;
+      color: black; }
+      nav .nav-links a i {
+        margin-right: 8%; }
+    nav .nav-links li {
+      margin-left: 12%;
+      opacity: 0; }
+  nav .burger {
+    display: block;
+    cursor: pointer; }
+  nav .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px); }
+  nav .toggle .line2 {
+    opacity: 0; }
+  nav .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px); }
+  nav .nav-active {
+    transform: translateX(0%); } }
+
+@media screen and (max-width: 360px) {
+  body {
+    overflow-x: hidden; }
+  nav .nav-links {
+    position: absolute;
+    left: 0;
+    height: 92vh;
+    top: 8vh;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: right;
     z-index: 1000;
     width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in; }
+    transform: translateX(-50%);
+    transition: transform 0.5s ease; }
     nav .nav-links a {
-      letter-spacing: 4px; }
+      letter-spacing: 3px;
+      font-size: 16px;
+      color: black; }
+      nav .nav-links a i {
+        margin-right: 8%; }
     nav .nav-links li {
+      margin-left: 6%;
       opacity: 0; }
   nav .burger {
     display: block;
@@ -79,10 +129,17 @@ nav {
 @keyframes navLinkFade {
   from {
     opacity: 0;
-    transform: translateX(50px); }
+    transform: translateX(-50px); }
   to {
     opacity: 1;
     transform: translateX(0px); } }
+
+@keyframes navLinkFadeOut {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    transform: translateX(-50px); } }
 
 @font-face {
   font-family: 'Material Icons';
