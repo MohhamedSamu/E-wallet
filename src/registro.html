@@ -57,5 +57,14 @@
             </div>
         </div>
     </main>
+    <script>
+        if (localStorage.getItem("darkmode")){
+            document.documentElement.classList.toggle("dark-mode")
+            document.querySelectorAll(".inverted").forEach(element => {
+                element.classList.toggle("invert")
+            });
+            document.getElementById("drkMode").checked = true
+        }
+    </script>
 </body>
 </html>

@@ -142,10 +142,41 @@
                 </div>
             </div>
         </div>
+        <div class="col-12 my-3">
+            <div class="card ">
+                <div class="card-body">
+                    <h5 class="card-title">Dark mode: </h5>
+                    <label class="switch">
+                        <input type="checkbox" id="drkMode" che>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
     <footer class="bg-dark text-white-50 text-center mt-4 py-4 shadow-lg">
         E-WALLET | copyright 2020
     </footer>
+    <script>
+        if (localStorage.getItem("darkmode")){
+            document.documentElement.classList.toggle("dark-mode")
+            document.querySelectorAll(".inverted").forEach(element => {
+                element.classList.toggle("invert")
+            });
+            document.getElementById("drkMode").checked = true
+        }
+        document.getElementById("drkMode").addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark-mode")
+            document.querySelectorAll(".inverted").forEach(element => {
+                element.classList.toggle("invert")
+            });
+            if (localStorage.getItem("darkmode")){
+                localStorage.clear()
+            }else{
+                localStorage.setItem("darkmode",true)
+            }
+        })
+    </script>
     <script src="./js/nav.js"></script>
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
