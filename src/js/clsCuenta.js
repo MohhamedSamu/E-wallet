@@ -1,5 +1,5 @@
 //Creando una clase rectángulo
-function rectangulo(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimiento, pago_tar) {
+function cuenta(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimiento, pago_tar) {
     //Propiedades de la clase
     this.banco = banco;
     this.num_cuenta = num_cuenta;
