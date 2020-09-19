@@ -1,5 +1,5 @@
 //Creando una clase rectángulo
-function rectangulo(nombre, apellido,correo,contra,direccion,dui,nit,cel,fechaNac) {
+function usuario(nombre, apellido,correo,contra,direccion,dui,nit,cel,fechaNac) {
     //Propiedades de la clase
     this.nombre = nombre;
     this.apellido = apellido;
