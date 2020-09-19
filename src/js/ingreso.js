@@ -1,14 +1,14 @@
 //Registrar evento click del ratón al presionar botones de envío
 function Agregar(){
-    var showinfo = document.getElementById("agregar");
+    var showinfo = document.getElementById("Agregar");
     if(showinfo.addEventListener){
     showinfo.addEventListener("click", function(){
-    ingreso.validar(document.frmIngreso.Fecha.value, document.frmIngreso.Motivo.value, document.frmIngreso.Monto.value, document.frmIngreso.Cuenta.value);
+        ingreso.validar();
     }, false);
     }
     else if(showinfo.attachEvent){
     showinfo.attachEvent("onclick", function(){
-    ingreso.validar(document.frmIngreso.Fecha.value, document.frmIngreso.Motivo.value, document.frmIngreso.Monto.value, document.frmIngreso.Cuenta.value);
+    ingreso.validar();
     });
     }
 }//creamos objeto
@@ -19,24 +19,29 @@ ingreso.motivo = "";
 ingreso.monto ="";
 ingreso.cuenta = "";
 //funcion para mostrar
-ingreso.mostrar = function(fecha, motivo, monto, cuenta){
-    //aqui es donde se muestan los datos
-    alert(fecha);
-    alert(motivo);
-    alert(monto);
-    alert(cuenta);
-}
-// Funciones de ingreso valida si todos los datos tienen algo
-ingreso.validar = function(fecha, motivo, monto, cuenta){
+ingreso.mostrar = function(fecha,motivo,monto,cuenta){
+    alert("mostrar");
+    //aqui es donde se guardan y muestran los datos
     ingreso.fecha= fecha;
     ingreso.motivo= motivo;
     ingreso.monto= monto;
     ingreso.cuenta= cuenta;
-        if(ingreso.fecha != ""){
-            if(ingreso.motivo != ""){
-                if(ingreso.monto != ""){
-                    if(ingreso.cuenta != ""){
-                        ingreso.mostrar(ingreso.fecha,ingreso.motivo,ingreso.monto, ingreso.cuenta);
+    alert(ingreso.fecha);
+    alert(ingreso.motivo);
+    alert(ingreso.monto);
+    alert(ingreso.cuenta);
+}
+// Funciones de ingreso valida si todos los datos tienen algo
+ingreso.validar = function(){
+    var fecha =document.frmIngreso.fecha.value; 
+    var motivo = document.frmIngreso.motivo.value;
+    var monto = document.frmIngreso.monto.value;
+    var cuenta = document.frmIngreso.num_cuenta.value;
+        if(fecha != ""){
+            if(motivo != ""){
+                if(monto != ""){
+                    if(cuenta != ""){
+                        ingreso.mostrar(fecha,motivo,monto,cuenta);
                     }else{
                         alert("Cuenta no ingresada");
                         }
@@ -53,8 +58,8 @@ ingreso.validar = function(fecha, motivo, monto, cuenta){
 }
 //Asociando función que manejará el evento load al cargar la página
 if(window.addEventListener){
-    window.addEventListener("load", iniciar, false);
+    window.addEventListener("load", Agregar, false);
     }
     else if(window.attachEvent){
-    window.attachEvent("onload", iniciar);
+    window.attachEvent("onload", Agregar);
     }

@@ -7,6 +7,7 @@
     <title>e-Wallet</title>
     <link rel="stylesheet" href="css/bs.css" />
     <link rel="stylesheet" href="css/navbar.css" />
+    <script src="js/gastos.js"></script>
 </head>
 
 <body class="bg-ligth">
@@ -44,16 +45,16 @@
     <div class="container my-4">
         <div class="row">
             <div class="col-12 col-sm-10 col-lg-6 mx-auto">
-                <form class="bg-white shadow rounded py-3 px-4" method="POST" action="">
+                <form class="bg-white shadow rounded py-3 px-4" id="frmGasto" name="frmGasto">
                     <h1 class="display-4">Agregar gasto</h1>
                     <div class="form-group">
                         <label for="name">Motivo</label>
-                        <input class="form-control bg-light shadow-sm " id="name" type="text" name="name"
+                        <input class="form-control bg-light shadow-sm " id="motivo" type="text" name="motivo"
                             placeholder="Ingrese el motivo...">
                     </div>
                     <div class="form-group">
                         <label for="name">Monto</label>
-                        <input class="form-control bg-light shadow-sm " id="name" type="number" name="name"
+                        <input class="form-control bg-light shadow-sm " id="monto" type="number" name="monto"
                             placeholder="Ingrese el monto...">
                     </div>
                     <div class="form-group">
@@ -128,7 +129,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg btn-block my-4">Guardar</button>
+                    <button class="btn btn-primary btn-lg btn-block my-4" id="Agregar">Guardar</button>
                 </form>
             </div>
         </div>
