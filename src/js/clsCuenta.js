@@ -59,14 +59,22 @@ if (localStorage.getItem("cuenta")){
 }else{
   localStorage.setItem("cuenta",nuevaCuenta)
 }
-
-const bancoT = document.getElementById("nombre_banco_T")
+//tarjeta de credito
+const banco_T = document.getElementById("nombre_banco_T")
 const num_tarjeta = document.getElementById("num_tarjeta")
 const saldo_act_T = document.getElementById("saldo_act_T")
 const interes = document.getElementById("interes")
 const Fecha_pago = document.getElementById("Fecha_pago")
 
+//cuenta de banco
 const nombre_banco = document.getElementById("nombre_banco")
+const num_cuenta = document.getElementById("num_cuenta")
+const saldo_act = document.getElementById("saldo_act")
 document.getElementById("btnIngresarTarjeta").addEventListener("click",()=>{
-  nuevaCuenta.validarTarjeta()
+  nuevaCuenta.validarTarjeta(banco_T.value,num_tarjeta.value,saldo_act_T.value,interes.value,Fecha_pago.value)
+  localStorage.setItem("cuenta",nuevaCuenta)
+})
+document.getElementById("btnIngresarCuenta").addEventListener("click",()=>{
+  nuevaCuenta.validarCuenta(nombre_banco.value,num_cuenta.value,saldo_act.value);
+  localStorage.setItem("cuenta",nuevaCuenta)
 })

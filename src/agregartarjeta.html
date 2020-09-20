@@ -7,6 +7,7 @@
     <title>e-Wallet</title>
     <link rel="stylesheet" href="css/bs.css" />
     <link rel="stylesheet" href="css/navbar.css" />
+    <script src="js/clsCuenta.js"></script>
 </head>
 
 <body class="bg-ligth">
@@ -46,7 +47,7 @@
             <div class="card col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-12 p-5">
                 <div class="card-body">
                     <h5 class="card-title display-4">Agregar Tarjeta de crédito</h5>
-                    <form action="#">
+                    <form action="cuentas.html">
                         <div class="form-group">
                             <label for="name">Banco</label>
                             <input class="form-control bg-light shadow-sm " id="nombre_banco_T" type="text"
@@ -73,7 +74,7 @@
                                 name="Fecha_pago" placeholder="Ingrese la fecha de pago mensual...">
                         </div>
                     </form>
-                    <input class="btn btn-primary btn-lg btn-block my-4" value="Guardar" id="btnIngresarTarjeta">
+                    <input class="btn btn-primary btn-lg btn-block my-4" value="Guardar" type="submit" id="btnIngresarTarjeta">
                 </div>
             </div>
         </div>
