@@ -1,14 +1,13 @@
-//Registrar evento click del ratón al presionar botones de envío
 function Agregar(){
     var showinfo = document.getElementById("Agregar");
     if(showinfo.addEventListener){
-    showinfo.addEventListener("click", function(){
-        gasto.validar();
-    }, false);
+        showinfo.addEventListener("click", function(){
+            gasto.validar();
+        }, false);
     }
     else if(showinfo.attachEvent){
-    showinfo.attachEvent("onclick", function(){
-        gasto.validar();
+        showinfo.attachEvent("onclick", function(){
+            gasto.validar();
         });
     }
 }//creamos objeto
@@ -58,7 +57,6 @@ gasto.validar = function(){
 //Asociando función que manejará el evento load al cargar la página
 if(window.addEventListener){
     window.addEventListener("load", Agregar, false);
-    }
-    else if(window.attachEvent){
+}else if(window.attachEvent){
     window.attachEvent("onload", Agregar);
-    }
+}

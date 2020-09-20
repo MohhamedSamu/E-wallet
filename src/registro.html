@@ -10,7 +10,7 @@
     <main role="main" class="container my-auto">
         <div class="row my-5">
             <div id="login" class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-12 p-5">
-                <form action="datos.html" method="">
+                <form  method=""> <!--action="datos.html"-->
                     <h1 class="mb-3 text-center">Crear Cuenta</h1>
                     <fieldset id="logindatos">
                         <div class="form-group">
@@ -44,13 +44,7 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" value="" pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})" title="Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero" placeholder="Contraseña" required>
                         </div>
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary px-5">Submit</button>
+                        <input type="submit" value="Submit" id="btnRegistrar" class="btn btn-primary px-5">
                         <a class="btn btn-primary px-5" href="datos.html">Avanzar (provicional)</a>
                     </fieldset>
                 </form>
@@ -66,5 +60,6 @@
             document.getElementById("drkMode").checked = true
         }
     </script>
+    <script src="js/clsUsuario.js"></script>
 </body>
 </html>

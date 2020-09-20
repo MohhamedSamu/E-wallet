@@ -1,63 +1,72 @@
-//Creando una clase rectángulo
-function cuenta(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimiento, pago_tar) {
-    //Propiedades de la clase
-    this.banco = banco;
-    this.num_cuenta = num_cuenta;
-    this.saldo = saldo;
-    this.num_tarjeta = num_tarjeta;
-    this.interes = interes;
-    this.pago = pago;
-    this.pago_tar = pago_tar;
-    this.fecha_vencimiento = fecha_vencimiento;
-    //Métodos de la clase 
-    //valida si todos los campos esten llenos y que el saldo sea mayor a 0 y si todo es correcto devuelve true
-    this.validarCuenta = function () {
-        if (this.banco != "") {
-            if (this.cuenta != "") {
-                if (this.saldo > 0) {
-                    return true;
-                }
-                else {
-                    alert("El saldo tiene que ser superior a 0")
-                }
-            }
-            else {
-                alert("El numero de cuenta aun no ha sido asignado")
-            }
+function cuenta() {
+  this.efectivo = 0;
+  this.cuentaBancarias = [];
+  this.tarjetasDeCredito = [];
+  this.validarCuenta = function (banco, cuenta, saldo) {
+    if (banco != "") {
+      if (cuenta != "") {
+        if (saldo > 0) {
+          this.cuentaBancarias.push({
+            banco: banco,
+            numCuenta: cuenta,
+            saldo: saldo,
+          });
+          this.efectivo += this.saldo;
+        } else {
+          alert("El saldo tiene que ser superior a 0");
         }
-        else {
-            alert("El nombre del banco aun no asignado")
-        }
-        return false
+      } else {
+        alert("El numero de cuenta aun no ha sido asignado");
+      }
+    } else {
+      alert("El nombre del banco aun no asignado");
     }
-    this.validarTarjeta = function () {
-        if (this.banco != "") {
-            if (this.num_tarjeta != "") {
-                if (this.interes > 0) {
-                    if (this.fecha_vencimiento != 0) {
-                        if (this.saldo > 0) {
-                            //saldo pasa a ser flotante
-                            this.saldo = parseFloat(saldo);
-                            //si presiono el checkbox de pagar con sumara el pago al saldo
-                            if (this.pago_tar.type === 'checkbox') {
-                                this.saldo = this.saldo + this.pago;
-                            }
-                        }
-                    }
-                    else {
-                        alert("Fecah de vencimiento no valida")
-                    }
-                }
-                else {
-                    alert("El interes tiene que ser mayor a 0")
-                }
+    return false;
+  };//final ingreso de valores de cuenta
+  this.validarTarjeta = function (banco,num_tarjeta, saldo, interes,fecha_vencimiento) {
+    if (banco != "") {
+      if (num_tarjeta != "") {
+        if (interes > 0) {
+          if (fecha_vencimiento != 0) {
+            if (saldo > 0) {
+              this.tarjetasDeCredito.push({
+                banco: banco,
+                numTarjeta: num_tarjeta,
+                saldo:saldo,
+                interes:interes,
+                fechaVencimiento:fecha_vencimiento
+              });
+              this.efectivo += saldo;
             }
-            else {
-                alert("El numero de Tarjeta aun no ha sido asignado")
-            }
+          } else {
+            alert("Fecah de vencimiento no valida");
+          }
+        } else {
+          alert("El interes tiene que ser mayor a 0");
         }
-        else {
-            alert("El nombre del banco aun no asignado")
-        }
+      } else {
+        alert("El numero de Tarjeta aun no ha sido asignado");
+      }
+    } else {
+      alert("El nombre del banco aun no asignado");
     }
+  };//final de ingreso de tarjeta de credito 
 }
+var nuevaCuenta = new cuenta();
+if (localStorage.getItem("cuenta")){
+  var nuevaCuenta = JSON.parse(localStorage.getItem("cuenta"));
+  document.getElementById("efectivo").innerText = nuevaCuenta.efectivo;
+}else{
+  localStorage.setItem("cuenta",nuevaCuenta)
+}
+
+const bancoT = document.getElementById("nombre_banco_T")
+const num_tarjeta = document.getElementById("num_tarjeta")
+const saldo_act_T = document.getElementById("saldo_act_T")
+const interes = document.getElementById("interes")
+const Fecha_pago = document.getElementById("Fecha_pago")
+
+const nombre_banco = document.getElementById("nombre_banco")
+document.getElementById("btnIngresarTarjeta").addEventListener("click",()=>{
+  nuevaCuenta.validarTarjeta()
+})

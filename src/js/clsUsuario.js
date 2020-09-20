@@ -1,6 +1,4 @@
-//Creando una clase rectángulo
 function usuario(nombre, apellido,correo,contra,direccion,dui,nit,cel,fechaNac) {
-    //Propiedades de la clase
     this.nombre = nombre;
     this.apellido = apellido;
     this.correo = correo;
@@ -10,55 +8,33 @@ function usuario(nombre, apellido,correo,contra,direccion,dui,nit,cel,fechaNac) 
     this.nit = nit;
     this.cel = cel;
     this.fechaNac = fechaNac;
-    //Métodos de la clase 
-    //valida que todos los campos esten llenos 
-    this.validar = function () {
-        if (this.nombre != "") {
-            if (this.apellido != "") {
-                if (this.correo != "") {
-                    if (this.contra != "") {
-                        if (this.direccion != "") {
-                            if (this.dui != "") {
-                                if (this.nit != "") {
-                                    if (this.cel != "") {
-                                        if (this.fechaNac != "") {
-                                            return true;
-                                        }
-                                        else{
-                                            alert("Fecha de nacimiento aun no asignado")
-                                        }
-                                    }
-                                    else{
-                                        alert("Celular aun no asignado")
-                                    }
-                                }
-                                else{
-                                    alert("NIT aun no asignado")
-                                }
-                            }
-                            else{
-                                alert("DUI aun no asignado")
-                            }
-                        }
-                        else{
-                            alert("Direccion aun no asignado")
-                        }
-                    }
-                    else{
-                        alert("Contraseña aun no asignado")
-                    }
-                }
-                else{
-                    alert("correo aun no asignado")
-                }
-            }
-            else{
-                alert("Apellido aun no asignado")
-            }
-        }
-        else{
-            alert("Nombre aun no asignado")
-        }
-        return false;
+    this.mostrar = function () {
+        alert("ola "+ nombre)
     }
 }
+
+const btnRegistrar = document.getElementById("btnRegistrar");
+const nombre = document.getElementById("nombre");
+const apellido = document.getElementById("apellido");
+const correo = document.getElementById("correo");
+const telefono = document.getElementById("telefono");
+const direccion = document.getElementById("direccion");
+const dui = document.getElementById("dui");
+const nit = document.getElementById("nit");
+const fecha_nacimiento = document.getElementById("fecha_nacimiento");
+const contrasena = document.getElementById("password");
+
+btnRegistrar.addEventListener("click", () => {
+    var nuevaCuenta = new usuario(
+    nombre.value,
+    apellido.value,
+    correo.value,
+    contrasena.value,
+    direccion.value,
+    dui.value,
+    nit.value,
+    telefono.value,
+    fecha_nacimiento.value
+  );
+  nuevaCuenta.mostrar();        
+});

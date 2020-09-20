@@ -47,7 +47,7 @@
                     <div class="card ">
                         <div class="card-body">
                             <h5 class="card-title">Efectivo</h5>
-                            <p class="card-text">$ 300</p>
+                            <p class="card-text" id="efectivo">$ 0</p>
                         </div>
                     </div>
                 </div>
@@ -63,26 +63,11 @@
                                         <th scope="col">Saldo Actual</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="cuentasBancarias">
                                     <tr>
                                         <th scope="row">Banco Agricola</th>
                                         <td>32784516523</td>
                                         <td>50.10</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Davivienda</th>
-                                        <td>548512354532</td>
-                                        <td>100</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Santander</th>
-                                        <td>78512354621</td>
-                                        <td>47.60</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Azteca</th>
-                                        <td>953120513512</td>
-                                        <td>74.36</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -104,34 +89,13 @@
                                         <th scope="col">Fecha de pago mensual</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tarjetasCredito">
                                     <tr>
                                         <th scope="row">Banco Agricola</th>
                                         <td>1213213153</td>
                                         <td>300</td>
                                         <td>3.5%</td>
                                         <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Davivienda</th>
-                                        <td>515325132</td>
-                                        <td>250</td>
-                                        <td>3%</td>
-                                        <td>21</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Santander</th>
-                                        <td>2315644685</td>
-                                        <td>510</td>
-                                        <td>3.7%</td>
-                                        <td>3</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Banco Azteca</th>
-                                        <td>879645421</td>
-                                        <td>600</td>
-                                        <td>3.3%</td>
-                                        <td>17</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -155,6 +119,7 @@
             document.getElementById("drkMode").checked = true
         }
     </script>
+    <script src="js/clsCuenta.js"></script>
     <script src="./js/nav.js"></script>
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
