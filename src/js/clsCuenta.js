@@ -1,17 +1,23 @@
 //Creando una clase rectángulo
-function cuenta(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimiento, pago_tar) {
+function cuenta() {
     //Propiedades de la clase
-    this.banco = banco;
-    this.num_cuenta = num_cuenta;
-    this.saldo = saldo;
-    this.num_tarjeta = num_tarjeta;
-    this.interes = interes;
-    this.pago = pago;
-    this.pago_tar = pago_tar;
-    this.fecha_vencimiento = fecha_vencimiento;
+    this.banco = null;
+    this.num_cuenta = null;
+    this.saldo = null;
+    this.num_tarjeta = null;
+    this.interes = null;
+    this.pago = null;
+    this.pago_tar = null;
+    this.fecha_vencimiento = null;
     //Métodos de la clase 
     //valida si todos los campos esten llenos y que el saldo sea mayor a 0 y si todo es correcto devuelve true
-    this.validarCuenta = function () {
+    this.Efectivo = function (){
+        this.efec = efec;
+    }
+    this.cuentasBancarias = function(banco, num_cuenta, saldo){
+        this.banco = banco;
+        this.num_cuenta= num_cuenta;
+        this.saldo= saldo;
         if (this.banco != "") {
             if (this.cuenta != "") {
                 if (this.saldo > 0) {
@@ -30,7 +36,11 @@ function cuenta(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimient
         }
         return false
     }
-    this.validarTarjeta = function () {
+    this.tarjetas = function( num_tarjeta, interes, fecha_vencimiento, pago_tar){
+        this.num_tarjeta= num_tarjeta;
+        this.interes= interes;
+        this.fecha_vencimiento=fecha_vencimiento;
+        this.pago_tar= pago_tar;
         if (this.banco != "") {
             if (this.num_tarjeta != "") {
                 if (this.interes > 0) {
@@ -60,4 +70,5 @@ function cuenta(banco, num_cuenta, saldo, num_tarjeta, interes, fecha_vencimient
             alert("El nombre del banco aun no asignado")
         }
     }
+
 }
