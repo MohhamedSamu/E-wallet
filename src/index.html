@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/bs.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="./js/verificarUsuario.js"></script>
+
 </head>
 
 <body class="bg-ligth">
@@ -21,7 +23,7 @@
             <li><a href="ingresos.html"><i class="material-icons">trending_up</i>Ingresos</a></li>
             <li class="current"><a href="gastos.html"><i class="material-icons">trending_down</i>Gastos</a></li>
             <li><a href="configuraciones.html"><i class="material-icons">account_circle</i>Cuenta</a></li>
-            <li><a href="login.html"><i class="material-icons">login</i>Salir</a></li>
+            <li><a id="btnSalir"><i class="material-icons">login</i>Salir</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
@@ -87,7 +89,13 @@
             });
             document.getElementById("drkMode").checked = true
         }
+        document.getElementById("btnSalir").addEventListener('click', () => {
+            sessionStorage.clear()
+            window.location.replace("./login.html");
+        })
+
     </script>
+
     <!-- navbar -->
     <script src="./js/nav.js"></script>
     <!-- libreria de graficas -->

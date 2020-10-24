@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bs.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/login.js"></script>
     <title>Login</title>
 </head>
 <body class="bg-info">
@@ -15,13 +14,12 @@
                     <h1 class="mb-3 text-center">Bienvenido</h1>
                     <fieldset>
                         <div class="form-group">
-                            <input type="text" name="nombre" id="nombre" value="" class="form-control" placeholder="Ingrese su Nombre" required/><br>
+                            <input type="text" name="correo" id="correo" value="" class="form-control" placeholder="Ingrese su correo" required/><br>
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" id="password" value="" class="form-control" placeholder="Ingrese su Contraseña" required><br>
                         </div>
-                        <input type="button" id="B2" class="btn btn-primary px-5 mb-3" value="Ingresar">
-                        <a class="btn btn-primary px-5" href="index.html">Avanzar (provicional)</a>
+                        <a class="btn btn-primary px-5" id="btnIniciarSesion">Iniciar Sesión</a>
                         <p>¿No tienes cuenta?<a class="regist" href="registro.html"> Registrate</a></p>
                     </fieldset>
                 </form>
@@ -37,6 +35,11 @@
             });
             document.getElementById("drkMode").checked = true
         }
+        if (!localStorage.getItem("users")){
+        window.location.replace("./registro.html");
+
+        }
     </script>
+    <script src="./js/clsUsuario.js"></script>
 </body>
 </html>
