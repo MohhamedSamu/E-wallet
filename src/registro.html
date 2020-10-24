@@ -4,37 +4,36 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/bs.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/registrar.js"></script>
     <title>Registrate</title>
 </head>
 <body class="bg-info">
     <main role="main" class="container my-auto">
         <div class="row my-5">
             <div id="login" class="card col-lg-6 offset-lg-3 col-md-6 offset-md-3 col-12 p-5">
-                <form  method=""> <!--action="datos.html"-->
+                <form  method="" name="entradas" id="entradas"> <!--action="datos.html"-->
                     <h1 class="mb-3 text-center">Crear Cuenta</h1>
                     <fieldset id="logindatos">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="nombre" value="" pattern="^[a-zA-Z\s]+$" title="Solo se acepta letras"   placeholder="Nombres" required />
+                            <input type="text" class="form-control" id="nombre" value="" placeholder="Nombres" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="apellido" value="" pattern="^[a-zA-Z\s]+$" title="Solo se acepta letras" placeholder="Apellidos" required />
+                            <input type="text" class="form-control" id="apellido" value="" placeholder="Apellidos" required />
                         </div>
                         <div class="form-group">    
-                            <input type="email" class="form-control" id="correo" value="" title="NombreCorreo@dominio"   placeholder="Correo Eléctronico" required>
+                            <input type="email" class="form-control" id="correo" value="" placeholder="Correo Eléctronico" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="telefono" value="" pattern="^[0-9]{4}-?[0-9]{4}$" title="Solo acepta números en el siguiente formato: 2222-2222"   placeholder="Número de Teléfono" required>
+                            <input type="number" class="form-control" id="telefono" value="" placeholder="Número de Teléfono" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="direccion" value="" title="Dirección" placeholder="Dirección de residencia" required>
+                            <input type="text" class="form-control" id="direccion" value="" placeholder="Dirección de residencia" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="dui" value="" pattern="^[0-9]{8}-?[0-9]{1}$" title="Solo acepta números en el 
-                            siguiente formato: 12345678-9" placeholder="Número de DUI" required>
+                            <input type="number" class="form-control" id="dui" value="" placeholder="Número de DUI" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="nit" value="" pattern="^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$" title="Solo acepta números en el 
-                            siguiente formato: 0101-010101-101-1" placeholder="Número de NIT" required>
+                            <input type="number" class="form-control" id="nit" value="" placeholder="Número de NIT" required>
                         </div>
                         <div class="form-group">
                             <label for="">Seleccione su fecha de nacimiento</label>
@@ -44,7 +43,12 @@
                         <div class="form-group">
                             <input type="password" class="form-control" id="password" value="" placeholder="Contraseña" required>
                         </div>
+<<<<<<< HEAD
                         <a class="btn btn-primary px-5" id="btnRegistrar">Avanzar (provicional)</a>
+=======
+                        <input type="button" value="Ingresar Datos" name="btnRegistrar" id="btnRegistrar" class="btn btn-primary px-5"><br><br>
+                        <a class="btn btn-primary px-5" href="datos.html">Avanzar (provicional)</a>
+>>>>>>> 1c62c790a79f221c6e39b9c7bb29a696884ec14b
                     </fieldset>
                 </form>
             </div>

@@ -1,19 +1,22 @@
 var re = null;
-// Valida el ingreso del Email
-function ValidarContra() {
-    var password = document.entradas.nombre;
-    var nombre = document.entradas.password;
+function ValidarNombre(){
+    var nombre = document.entradas.nombre.value;
     if (nombre == null || nombre == "" || nombre.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de nombre");
         return 0;
     }
+}
+// Valida el ingreso de la contraseña
+function ValidarContra() {
+    var password = document.entradas.password.value;
     if (password == null || password == "" || password.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de contraseña");
         return 0;
-    }
-    re = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15})/;
-    if ((re.test(password))) {
-        alert("Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero");
+    }else{
+        re = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$/;
+        if (!(re.test(password))) {
+            alert("Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero");
+        }
     }
 }
 function inputAlphanumericOnly(e) {
@@ -53,9 +56,11 @@ function init() {
     //manda a llamar la funcion de verificacion de correo
     var boton = document.getElementById("B2");
     if (boton.addEventListener) {
+        boton.addEventListener("click", ValidarNombre, false);
         boton.addEventListener("click", ValidarContra, false);
     }
     else if (boton.attachEvent) {
+        boton.addEventListener("click", ValidarNombre, false);
         boton.attachEvent("onclick", ValidarContra);
     }
 }
