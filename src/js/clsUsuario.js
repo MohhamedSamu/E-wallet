@@ -19,6 +19,7 @@ function usuario(
   this.nit = nit;
   this.cel = cel;
   this.fechaNac = fechaNac;
+
   this.guardarCuenta = () => {
     if (localStorage.getItem("users")) {
       usuarios = JSON.parse(localStorage.getItem("users"));
@@ -84,7 +85,7 @@ this.iniciarSesion = (contra, correo) => {
   for (let i = 0; i < usuarios.length; i++) {
     if (usuarios[i].correo == correo) {
       if (usuarios[i].contra == contra) {
-        user = usuarios;
+        user = usuarios[i];
         sessionStorage.setItem("sesionActual", JSON.stringify(user));
         window.location.replace("./index.html");
         errorState = false;
@@ -97,6 +98,8 @@ this.iniciarSesion = (contra, correo) => {
   }
   if (errorState) alert(errorMessage);
 };
+
+
 if (document.getElementById("btnRegistrar")) {
   const nombre = document.getElementById("nombre");
   const apellido = document.getElementById("apellido");
@@ -108,6 +111,7 @@ if (document.getElementById("btnRegistrar")) {
   const fecha_nacimiento = document.getElementById("fecha_nacimiento");
   const contrasena = document.getElementById("password");
   const btnRegistrar = document.getElementById("btnRegistrar");
+
   btnRegistrar.addEventListener("click", (e) => {
     e.preventDefault();
     var nuevaCuenta = new usuario(
@@ -124,7 +128,9 @@ if (document.getElementById("btnRegistrar")) {
     nuevaCuenta.guardarCuenta();
   });
 }
-if ((btnIniciarSesion = document.getElementById("btnIniciarSesion"))) {
+
+
+if (document.getElementById("btnIniciarSesion")) {
   const btnIniciarSesion = document.getElementById("btnIniciarSesion");
   const contraLogin = document.getElementById("password");
   const correoLogin = document.getElementById("correo");

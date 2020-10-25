@@ -1,5 +1,6 @@
 function cuenta() {
   this.efectivo = 0;
+  this.idusuario;
   this.cuentaBancarias = [];
   this.tarjetasDeCredito = [];
   this.validarCuenta = function (banco, cuenta, saldo) {
