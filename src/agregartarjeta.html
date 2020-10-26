@@ -75,7 +75,8 @@
                                 name="Fecha_pago" placeholder="Ingrese la fecha de pago mensual...">
                         </div>
                     </form>
-                    <input class="btn btn-primary btn-lg btn-block my-4" value="Guardar" type="submit" id="btnIngresarTarjeta">
+                    <input class="btn btn-primary btn-lg btn-block my-4" value="Guardar" type="submit"
+                        id="btnIngresarTarjeta">
                 </div>
             </div>
         </div>
@@ -85,9 +86,11 @@
         E-WALLET | copyright 2020
     </footer>
     <script>
-        if (localStorage.getItem("darkmode")){
+        if (localStorage.getItem("darkmode"))
+        {
             document.documentElement.classList.toggle("dark-mode")
-            document.querySelectorAll(".inverted").forEach(element => {
+            document.querySelectorAll(".inverted").forEach(element =>
+            {
                 element.classList.toggle("invert")
             });
             document.getElementById("drkMode").checked = true

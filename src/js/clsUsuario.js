@@ -74,6 +74,7 @@ function usuario(
       usuarios = [newUser];
       localStorage.setItem("users", JSON.stringify(usuarios));
       iniciarSesion(this.contra, this.correo);
+      window.location.replace("./cuentas.html");
     }
   };
 }
@@ -87,7 +88,6 @@ this.iniciarSesion = (contra, correo) => {
       if (usuarios[i].contra == contra) {
         user = usuarios[i];
         sessionStorage.setItem("sesionActual", JSON.stringify(user));
-        window.location.replace("./index.html");
         errorState = false;
       } else {
         errorMessage = "Contraseña Incorrecta";
@@ -99,14 +99,13 @@ this.iniciarSesion = (contra, correo) => {
   if (errorState) alert(errorMessage);
 };
 
-
 if (document.getElementById("btnRegistrar")) {
   const nombre = document.getElementById("nombre");
   const apellido = document.getElementById("apellido");
   const correo = document.getElementById("correo");
   const telefono = document.getElementById("telefono");
   const direccion = document.getElementById("direccion");
-  const dui = document.getElementById("dui");
+  const dui = document.getElementById("dui"); 
   const nit = document.getElementById("nit");
   const fecha_nacimiento = document.getElementById("fecha_nacimiento");
   const contrasena = document.getElementById("password");
@@ -114,21 +113,169 @@ if (document.getElementById("btnRegistrar")) {
 
   btnRegistrar.addEventListener("click", (e) => {
     e.preventDefault();
-    var nuevaCuenta = new usuario(
-      nombre.value,
-      apellido.value,
-      correo.value,
-      contrasena.value,
-      direccion.value,
-      dui.value,
-      nit.value,
-      telefono.value,
-      fecha_nacimiento.value
-    );
-    nuevaCuenta.guardarCuenta();
+    var re = null;
+    var bandera = false;
+    if (bandera == false){
+      if (nombre == null || nombre == "" || nombre.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de nombre");
+        bandera = false;
+        return 0;
+      }else{
+        bandera = true;
+      }
+      if (apellido == null || apellido == "" || apellido.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de Apellido");
+        bandera = false;
+        return 0;
+      }else{
+        bandera = true;
+      }
+      if (correo == null || correo == "" || correo.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de correo");
+        bandera = false;
+        return 0;
+      }else{
+        re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
+        if (!re.test(correo))
+        {
+          alert("El correo es invalido, Ingrese uno correcto");
+          bandera = false;
+        }else{
+          bandera = true;
+        }
+      }
+      if (telefono == null || telefono == "" || telefono.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de Teléfono");
+        bandera = false;
+        return 0;
+      }else{
+        re = /^[0-9]{4}-?[0-9]{4}$/;
+        if (!re.test(telefono)) {
+          alert("El número de teléfono es invalido, Ingrese uno correcto");
+          bandera = false;
+        }else{
+          bandera = true;
+        }
+      }
+      if (direccion == null || direccion == "" || direccion.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de Direccion");
+        bandera = false;
+        return 0;
+      }else{
+        bandera = true;
+      }
+      if (dui == null || dui == "" || dui.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de DUI");
+        bandera = false;
+        return 0;
+      }else{
+        re = /^[0-9]{8}-?[0-9]{1}$/;
+        if (!re.test(dui)) {
+          alert("El número de DUI es invalido, Ingrese uno correcto, recuerde agregar el guión");
+          bandera = false;
+        }else{
+          bandera = true;
+        }
+      }
+      if (nit == null || nit == "" || nit.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de NIT");
+        bandera = false;
+        return 0;
+      }else{
+        re = /^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$/;
+        if (!re.test(nit)) {
+          alert("El número de NIT es invalido, Ingrese uno correcto, recuerde agregar los guiones");
+          bandera = false;
+        }else{
+          bandera = true;
+        }
+      }
+      if (password == null || password == "" || password.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de contraseña");
+        bandera = false;
+        return 0;
+      } else {
+        re = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$/;
+        if (!re.test(password)) {
+          alert(
+            "Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero"
+          );
+          bandera = false;
+        }else{
+          bandera = true;
+        }
+      }
+    }
+    if (bandera == true){
+      var nuevaCuenta = new usuario(
+        nombre.value,
+        apellido.value,
+        correo.value,
+        contrasena.value,
+        direccion.value,
+        dui.value,
+        nit.value,
+        telefono.value,
+        fecha_nacimiento.value
+      );
+      nuevaCuenta.guardarCuenta();
+    }
   });
 }
 
+function inputAlphanumericOnly(e) {
+  var evt = e ? e : event;
+  var keyCode = evt.which ? evt.which : evt.keyCode;
+  //alert("Código de tecla presionada " + keyCode);
+  if (
+    (keyCode < 65 || keyCode > 90) &&
+    (keyCode < 97 || keyCode > 122) &&
+    keyCode != 225 &&
+    keyCode != 193 &&
+    keyCode != 233 &&
+    keyCode != 201 &&
+    keyCode != 237 &&
+    keyCode != 205 &&
+    keyCode != 243 &&
+    keyCode != 211 &&
+    keyCode != 250 &&
+    keyCode != 218 &&
+    keyCode != 241 &&
+    keyCode != 209 &&
+    keyCode != 252 &&
+    keyCode != 220 &&
+    keyCode != 161 &&
+    keyCode != 33 &&
+    keyCode != 191 &&
+    keyCode != 63 &&
+    keyCode != 34 &&
+    keyCode != 46 &&
+    keyCode != 44 &&
+    keyCode != 59 &&
+    keyCode != 8 &&
+    keyCode != 13 &&
+    keyCode != 27 &&
+    keyCode != 32
+  ) {
+    //Any other input? Prevent the default response:
+    alert("Sólo se aceptan caracteres alfabéticos");
+    if (evt.preventDefault) evt.preventDefault();
+    evt.returnValue = false;
+    return false;
+  }
+  return true;
+}
+function addEventHandler(elem, eventType, handler) {
+  if (elem.addEventListener) {
+    //alert("Evento " + eventType + " controlado en el elemento " + elem);
+    elem.addEventListener(eventType, handler, false);
+  } else if (elem.attachEvent) {
+    elem.attachEvent("on" + eventType, handler);
+  } else {
+    return 0;
+  }
+  return 1;
+}
 
 if (document.getElementById("btnIniciarSesion")) {
   const btnIniciarSesion = document.getElementById("btnIniciarSesion");
@@ -137,5 +284,14 @@ if (document.getElementById("btnIniciarSesion")) {
   btnIniciarSesion.addEventListener("click", (e) => {
     e.preventDefault();
     this.iniciarSesion(contraLogin.value, correoLogin.value);
+    sesionActual = sessionStorage.getItem("sesionActual")
+    cuentas = localStorage.getItem("cuentas")
+    cuentaActual = cuentas.forEach(element => {
+      if (element.idusuario === sesionActual.id){
+        return element
+      }
+    });
+    sessionStorage.setItem("cuentaActual", cuentaActual)
+    window.location.replace("./index.html");
   });
 }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bs.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/dashboard.css">
-    <script src="./js/verificarUsuario.js"></script>
+    <script src="./js/verificarUsuario.js"></script> <!-- validador de cuenta -->
 
 </head>
 
@@ -38,8 +38,8 @@
             </div>
             <div class="offset-sm-4">
                 <h4>Mostrar por: <span id="anual" href=""> Años</span>, <span id="mensual" href="">Meses</span> ó <span
-                    id="personalizado" href="">Personalizado</span></h4>
-                </div>
+                        id="personalizado" href="">Personalizado</span></h4>
+            </div>
         </div>
         <div class="container-sm py-3">
             <div class="row my-3">
@@ -79,21 +79,23 @@
         </div>
     </div>
     <footer class="bg-dark text-white-50 text-center mt-4 py-4 shadow-lg">
-        E-WALLET | copyright 2020
+        E-WALLET | copyright
     </footer>
     <script>
-        if (localStorage.getItem("darkmode")){
+        if (localStorage.getItem("darkmode"))
+        {
             document.documentElement.classList.toggle("dark-mode")
-            document.querySelectorAll(".inverted").forEach(element => {
+            document.querySelectorAll(".inverted").forEach(element =>
+            {
                 element.classList.toggle("invert")
             });
             document.getElementById("drkMode").checked = true
         }
-        document.getElementById("btnSalir").addEventListener('click', () => {
+        document.getElementById("btnSalir").addEventListener('click', () =>
+        {
             sessionStorage.clear()
             window.location.replace("./login.html");
         })
-
     </script>
 
     <!-- navbar -->
@@ -104,14 +106,14 @@
     <script src="js/graficas.js"></script>
     <!-- bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

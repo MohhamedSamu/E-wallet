@@ -15,8 +15,63 @@ function Agregar() {
     });
   }
 } //creamos objeto
-var ingreso = new Object();
-//propiedades del objeto
+var ingresos = [];
+function ingreso(
+  idusuario,
+  fecha,
+  motivo,
+  monto,
+  tipo,
+  cuenta
+) {
+  this.idusuario;
+  this.fecha = fecha;
+  this.motivo = motivo;
+  this.monto = monto;
+  this.tipo = tipo;
+  this.cuenta = cuenta;
+  this.guardarIngreso = () => {
+    if (localStorage.getItem("users")) {
+      ingresos = JSON.parse(localStorage.getItem("users"));
+      let newIngreso = {
+        id: ingresos.length,
+        idusuario: this.idusuario,
+        fecha: this.fecha,
+        motivo: this.motivo,
+        monto: this.monto,
+        tipo: this.tipo,
+        cuenta: this.cuenta,
+
+      };
+
+      if (!errorState) {
+        usuarios.push(newUser);
+        localStorage.setItem("users", JSON.stringify(usuarios));
+        iniciarSesion(this.contra, this.correo);
+      } else {
+        alert(errorMessage);
+      }
+    } else {
+      let newUser = {
+        id: 0,
+        nombre: this.nombre,
+        apellido: this.apellido,
+        correo: this.correo,
+        contra: this.contra,
+        direccion: this.direccion,
+        dui: this.dui,
+        nit: this.nit,
+        cel: this.cel,
+        fechaNac: this.fechaNac,
+      };
+      usuarios = [newUser];
+      localStorage.setItem("users", JSON.stringify(usuarios));
+      iniciarSesion(this.contra, this.correo);
+      window.location.replace("./cuentas.html");
+    }
+  };
+}
+
 ingreso.fecha = "";
 ingreso.motivo = "";
 ingreso.monto = "";

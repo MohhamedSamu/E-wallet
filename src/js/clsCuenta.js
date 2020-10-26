@@ -1,6 +1,31 @@
-function cuenta() {
+if (!sessionStorage.getItem("cuentaActual")) {
+  if (localStorage.getItem("cuentas")) {
+    let sesionActual = JSON.parse(sessionStorage.getItem("sesionActual"));
+    let cuentas = JSON.parse(localStorage.getItem("cuentas"));
+    cuentaActual = cuentas.forEach((element) => {
+      if (element.idusuario === sesionActual.id) {
+        return element;
+      }
+    });
+    if (!cuentaActual) {
+      cuentaActual = new cuenta(sesionActual.id);
+      cuentas.push(cuentaActual);
+      localStorage.setItem("cuentas", JSON.stringify(cuentas));
+    }
+    sessionStorage.setItem("cuentaActual", JSON.stringify(cuentaActual));
+  } else {
+    cuentaActual = new cuenta(sesionActual.id);
+    localStorage.setItem("cuentas", JSON.stringify([cuentaActual]));
+    sessionStorage.setItem("cuentaActual", JSON.stringify(cuentaActual));
+  }
+}
+if (document.getElementById("efectivo")){
+  cuentaActual = JSON.parse(sessionStorage.getItem("cuentaActual"))
+  document.getElementById("efectivo").innerText = $ + cuentaActual.efectivo
+}
+function cuenta(id) {
   this.efectivo = 0;
-  this.idusuario;
+  this.idusuario = id;
   this.cuentaBancarias = [];
   this.tarjetasDeCredito = [];
   this.validarCuenta = function (banco, cuenta, saldo) {
@@ -23,8 +48,19 @@ function cuenta() {
       alert("El nombre del banco aun no asignado");
     }
     return false;
-  };//final ingreso de valores de cuenta
-  this.validarTarjeta = function (banco,num_tarjeta, saldo, interes,fecha_vencimiento) {
+  }; //final ingreso de valores de cuenta
+
+  this.getEfectivo = function () {
+    return this.efectivo;
+  };
+
+  this.validarTarjeta = function (
+    banco,
+    num_tarjeta,
+    saldo,
+    interes,
+    fecha_vencimiento
+  ) {
     if (banco != "") {
       if (num_tarjeta != "") {
         if (interes > 0) {
@@ -33,9 +69,9 @@ function cuenta() {
               this.tarjetasDeCredito.push({
                 banco: banco,
                 numTarjeta: num_tarjeta,
-                saldo:saldo,
-                interes:interes,
-                fechaVencimiento:fecha_vencimiento
+                saldo: saldo,
+                interes: interes,
+                fechaVencimiento: fecha_vencimiento,
               });
               this.efectivo += saldo;
             }
@@ -51,31 +87,44 @@ function cuenta() {
     } else {
       alert("El nombre del banco aun no asignado");
     }
-  };//final de ingreso de tarjeta de credito 
-}
-var nuevaCuenta = new cuenta();
-if (localStorage.getItem("cuenta")){
-  var nuevaCuenta = JSON.parse(localStorage.getItem("cuenta"));
-  document.getElementById("efectivo").innerText = nuevaCuenta.efectivo;
-}else{
-  localStorage.setItem("cuenta",nuevaCuenta)
-}
-//tarjeta de credito
-const banco_T = document.getElementById("nombre_banco_T")
-const num_tarjeta = document.getElementById("num_tarjeta")
-const saldo_act_T = document.getElementById("saldo_act_T")
-const interes = document.getElementById("interes")
-const Fecha_pago = document.getElementById("Fecha_pago")
+  }; //final de ingreso de tarjeta de credito
 
+  // this.ingreso = function(metodoPago, efectivo){
+  //   if (metodoPago == "tarjeta"){
+
+  //   }
+  //   this.efectivo += efectivo;
+  // }
+}
 //cuenta de banco
-const nombre_banco = document.getElementById("nombre_banco")
-const num_cuenta = document.getElementById("num_cuenta")
-const saldo_act = document.getElementById("saldo_act")
-document.getElementById("btnIngresarTarjeta").addEventListener("click",()=>{
-  nuevaCuenta.validarTarjeta(banco_T.value,num_tarjeta.value,saldo_act_T.value,interes.value,Fecha_pago.value)
-  localStorage.setItem("cuenta",nuevaCuenta)
-})
-document.getElementById("btnIngresarCuenta").addEventListener("click",()=>{
-  nuevaCuenta.validarCuenta(nombre_banco.value,num_cuenta.value,saldo_act.value);
-  localStorage.setItem("cuenta",nuevaCuenta)
-})
+const nombre_banco = document.getElementById("nombre_banco");
+const num_cuenta = document.getElementById("num_cuenta");
+const saldo_act = document.getElementById("saldo_act");
+
+if (document.getElementById("btnIngresarTarjeta")) {
+  const btn = document.getElementById("btnIngresarTarjeta");
+  const nombre_banco_T = document.getElementById("nombre_banco_T");
+  const num_tarjeta = document.getElementById("num_tarjeta");
+  const saldo_act_T = document.getElementById("saldo_act_T");
+  const interes = document.getElementById("interes");
+  const Fecha_pago = document.getElementById("Fecha_pago");
+  let cuentasUpdate;
+  btn.addEventListener("click", () => {
+    cuentaActual.validarTarjeta(
+      nombre_banco_T,
+      num_tarjeta,
+      saldo_act_T,
+      interes,
+      Fecha_pago
+    );
+    cuentas.forEach((element) => {
+      if (element.idusuario === sesionActual.id) {
+        cuentasUpdate.push(cuentaActual);
+      } else {
+        cuentasUpdate.push(element);
+      }
+    });
+    localStorage.setItem("cuentas", JSON.stringify(cuentasUpdate));
+    sessionStorage.setItem("cuentaActual", JSON.stringify(cuentasUpdate));
+  });
+}
