@@ -116,27 +116,27 @@ if (document.getElementById("btnRegistrar")) {
     var re = null;
     var bandera = false;
     if (bandera == false){
-      if (nombre == null || nombre == "" || nombre.length == 0) {
+      if (this.nombre.value == null || this.nombre.value == "" || this.nombre.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de nombre");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (apellido == null || apellido == "" || apellido.length == 0) {
+      if (this.apellido.value == null || this.apellido.value == "" || apellido.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Apellido");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (correo == null || correo == "" || correo.length == 0) {
+      if (this.correo.value == null || this.correo.value == "" || this.correo.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de correo");
         bandera = false;
         return 0;
       }else{
         re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
-        if (!re.test(correo))
+        if (!re.test(this.correo.value))
         {
           alert("El correo es invalido, Ingrese uno correcto");
           bandera = false;
@@ -144,59 +144,67 @@ if (document.getElementById("btnRegistrar")) {
           bandera = true;
         }
       }
-      if (telefono == null || telefono == "" || telefono.length == 0) {
+      if (this.telefono.value == null || this.telefono.value == "" || this.telefono.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Teléfono");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{4}-?[0-9]{4}$/;
-        if (!re.test(telefono)) {
+        if (!re.test(this.telefono.value)) {
           alert("El número de teléfono es invalido, Ingrese uno correcto");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (direccion == null || direccion == "" || direccion.length == 0) {
+      if (this.direccion.value == null || this.direccion.value == "" || this.direccion.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Direccion");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (dui == null || dui == "" || dui.length == 0) {
+      if (this.dui.value == null || this.dui.value == "" || this.dui.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de DUI");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{8}-?[0-9]{1}$/;
-        if (!re.test(dui)) {
+        if (!re.test(this.dui.value)) {
           alert("El número de DUI es invalido, Ingrese uno correcto, recuerde agregar el guión");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (nit == null || nit == "" || nit.length == 0) {
+      if (this.nit.value == null || this.nit.value == "" || this.nit.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de NIT");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$/;
-        if (!re.test(nit)) {
+        if (!re.test(this.nit.value)) {
           alert("El número de NIT es invalido, Ingrese uno correcto, recuerde agregar los guiones");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (password == null || password == "" || password.length == 0) {
+      if (this.fecha_nacimiento.value == null || this.fecha_nacimiento.value == "" || this.fecha_nacimiento.value.length == 0) {
+        alert("No se ha ingresado ningún valor en el campo de Fecha de Nacimiento");
+        bandera = false;
+        alert(this.fecha_nacimiento.value);
+        return 0;
+      }else{
+        bandera = true;
+      }
+      if (this.password.value == null || this.password.value == "" || this.password.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de contraseña");
         bandera = false;
         return 0;
       } else {
         re = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$/;
-        if (!re.test(password)) {
+        if (!re.test(this.password.value)) {
           alert(
             "Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero"
           );
@@ -206,17 +214,17 @@ if (document.getElementById("btnRegistrar")) {
         }
       }
     }
-    if (bandera == true){
+    if (bandera){
       var nuevaCuenta = new usuario(
-        nombre.value,
-        apellido.value,
-        correo.value,
-        contrasena.value,
-        direccion.value,
-        dui.value,
-        nit.value,
-        telefono.value,
-        fecha_nacimiento.value
+        this.nombre.value,
+        this.apellido.value,
+        this.correo.value,
+        this.contrasena.value,
+        this.direccion.value,
+        this.dui.value,
+        this.nit.value,
+        this.telefono.value,
+        this.fecha_nacimiento.value
       );
       nuevaCuenta.guardarCuenta();
     }

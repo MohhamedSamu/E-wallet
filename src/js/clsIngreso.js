@@ -2,9 +2,7 @@
 function Agregar() {
   var showinfo = document.getElementById("Agregar");
   if (showinfo.addEventListener) {
-    showinfo.addEventListener(
-      "click",
-      function () {
+    showinfo.addEventListener("click", function () {
         ingreso.validar();
       },
       false

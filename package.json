@@ -18,14 +18,14 @@
   },
   "homepage": "https://github.com/CheleNigga1/e-Wallet#readme",
   "dependencies": {
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.5.3",
     "gulp-cli": "^2.3.0",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "save-dev": "0.0.1-security"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^2.26.13",
     "gulp": "^4.0.2",
     "gulp-sass": "^4.1.0"
   }
