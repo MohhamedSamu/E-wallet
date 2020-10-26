@@ -193,7 +193,6 @@ if (document.getElementById("btnRegistrar")) {
       if (this.fecha_nacimiento.value == null || this.fecha_nacimiento.value == "" || this.fecha_nacimiento.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Fecha de Nacimiento");
         bandera = false;
-        alert(this.fecha_nacimiento.value);
         return 0;
       }else{
         bandera = true;
