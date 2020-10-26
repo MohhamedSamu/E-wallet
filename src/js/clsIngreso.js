@@ -1,119 +1,73 @@
-//Registrar evento click del ratón al presionar botones de envío
-function Agregar() {
-  var showinfo = document.getElementById("Agregar");
-  if (showinfo.addEventListener) {
-    showinfo.addEventListener("click", function () {
-        ingreso.validar();
-      },
-      false
-    );
-  } else if (showinfo.attachEvent) {
-    showinfo.attachEvent("onclick", function () {
-      ingreso.validar();
-    });
-  }
-} //creamos objeto
-var ingresos = [];
-function ingreso(
-  idusuario,
-  fecha,
-  motivo,
-  monto,
-  tipo,
-  cuenta
-) {
-  this.idusuario;
+// if (!sessionStorage.getItem("cuentaActual")) {
+//   if (localStorage.getItem("ingresos")) {
+//     let sesionActual = JSON.parse(sessionStorage.getItem("sesionActual"));
+//     let ingresos = JSON.parse(localStorage.getItem("ingresos"));
+//     cuentaActual = ingresos.forEach((element) => {
+//       if (element.idusuario === sesionActual.id) {
+//         return element;
+//       }
+//     });
+//   } else {
+// cuentaActual = new ingresos(sesionActual.id);
+// localStorage.setItem("ingresos", JSON.stringify([cuentaActual]));
+// sessionStorage.setItem("cuentaActual", JSON.stringify(cuentaActual));
+//   }
+// }
+
+function ingreso(id, fecha, motivo, monto, tipo, cuenta) {
+  this.idusuario = id;
   this.fecha = fecha;
   this.motivo = motivo;
   this.monto = monto;
   this.tipo = tipo;
   this.cuenta = cuenta;
-  this.guardarIngreso = () => {
-    if (localStorage.getItem("users")) {
-      ingresos = JSON.parse(localStorage.getItem("users"));
-      let newIngreso = {
-        id: ingresos.length,
-        idusuario: this.idusuario,
-        fecha: this.fecha,
-        motivo: this.motivo,
-        monto: this.monto,
-        tipo: this.tipo,
-        cuenta: this.cuenta,
-
-      };
-
-      if (!errorState) {
-        usuarios.push(newUser);
-        localStorage.setItem("users", JSON.stringify(usuarios));
-        iniciarSesion(this.contra, this.correo);
-      } else {
-        alert(errorMessage);
-      }
-    } else {
-      let newUser = {
-        id: 0,
-        nombre: this.nombre,
-        apellido: this.apellido,
-        correo: this.correo,
-        contra: this.contra,
-        direccion: this.direccion,
-        dui: this.dui,
-        nit: this.nit,
-        cel: this.cel,
-        fechaNac: this.fechaNac,
-      };
-      usuarios = [newUser];
-      localStorage.setItem("users", JSON.stringify(usuarios));
-      iniciarSesion(this.contra, this.correo);
-      window.location.replace("./cuentas.html");
-    }
-  };
 }
 
-ingreso.fecha = "";
-ingreso.motivo = "";
-ingreso.monto = "";
-ingreso.cuenta = "";
-//funcion para mostrar
-ingreso.mostrar = function (fecha, motivo, monto, cuenta) {
-  alert("mostrar");
-  //aqui es donde se guardan y muestran los datos
-  ingreso.fecha = fecha;
-  ingreso.motivo = motivo;
-  ingreso.monto = monto;
-  ingreso.cuenta = cuenta;
-  alert(ingreso.fecha);
-  alert(ingreso.motivo);
-  alert(ingreso.monto);
-  alert(ingreso.cuenta);
-};
-// Funciones de ingreso valida si todos los datos tienen algo
-ingreso.validar = function () {
-  var fecha = document.frmIngreso.fecha.value;
-  var motivo = document.frmIngreso.motivo.value;
-  var monto = document.frmIngreso.monto.value;
-  var cuenta = document.frmIngreso.num_cuenta.value;
-  if (fecha != "") {
-    if (motivo != "") {
-      if (monto != "") {
-        if (cuenta != "") {
-          ingreso.mostrar(fecha, motivo, monto, cuenta);
-        } else {
-          alert("Cuenta no ingresada");
-        }
-      } else {
-        alert("Monto no ingresada");
-      }
+if (document.getElementById("Agregar")) {
+  const btn = document.getElementById("Agregar");
+  const motivo_ingreso = document.getElementById("Motivo");
+  const monto_ingreso = document.getElementById("Monto");
+  const tipo_ingreso = document.getElementById("Tipo_pago");
+  const cuenta_ingreso = document.getElementById("selectCuentas");
+  cuentaActual = JSON.parse(sessionStorage.getItem("cuentaActual"));
+  if (tipo_ingreso.value == "tipo_cuenta") {
+    if (!cuentaActual.cuentaBancarias.length) {
+      cuentaActual.cuentaBancarias.forEach((element) => {
+        nuevaOpcion = document.createElement("option");
+        nuevaOpcion.value = element.numCuenta;
+        nuevaOpcion.innerText = element.numCuenta + ", " + element.banco;
+        cuenta_ingreso.innerText = "";
+        cuenta_ingreso.appendChild(nuevaOpcion);
+      });
     } else {
-      alert("Motivo no ingresada");
+      cuenta_ingreso.innerText = "No hay tarjetas disponibles";
     }
-  } else {
-    alert("Fecha no ingresada");
+  } else if (tipo_ingreso.value == "tipo_tarjeta") {
+    if (!cuentaActual.tarjetasDeCredito.length) {
+      cuentaActual.tarjetasDeCredito.forEach((element) => {
+        nuevaOpcion = document.createElement("option");
+        nuevaOpcion.value = element.num_tarjeta;
+        nuevaOpcion.innerText = element.num_tarjeta + ", " + element.banco;
+        cuenta_ingreso.innerText = "";
+        cuenta_ingreso.appendChild(nuevaOpcion);
+      });
+    } else {
+      cuenta_ingreso.innerText = "No hay tarjetas disponibles";
+    }
   }
-};
-//Asociando función que manejará el evento load al cargar la página
-if (window.addEventListener) {
-  window.addEventListener("load", Agregar, false);
-} else if (window.attachEvent) {
-  window.attachEvent("onload", Agregar);
+  btn.addEventListener("click", () => {
+    let ingresos = JSON.parse(localStorage.getItem("ingresos"));
+    usuarioActual = JSON.parse(sessionStorage.getItem("usuarioActual"));
+    let hoy = new Date();
+    nuevoIngreso = new ingreso(
+      usuarioActual.id,
+      hoy.getDate() + "/" + (hoy.getMonth() + 1) + "/" + hoy.getFullYear(),
+      motivo_ingreso.value,
+      monto_ingreso.value,
+      tipo_ingreso.value,
+      cuenta_ingreso.value
+    );
+    ingresos.push(nuevoIngreso);
+    localStorage.setItem("ingresos", JSON.stringify(ingresos));
+  });
 }

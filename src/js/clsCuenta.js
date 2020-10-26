@@ -1,6 +1,6 @@
 if (!sessionStorage.getItem("cuentaActual")) {
+  let sesionActual = JSON.parse(sessionStorage.getItem("sesionActual"));
   if (localStorage.getItem("cuentas")) {
-    let sesionActual = JSON.parse(sessionStorage.getItem("sesionActual"));
     let cuentas = JSON.parse(localStorage.getItem("cuentas"));
     cuentaActual = cuentas.forEach((element) => {
       if (element.idusuario === sesionActual.id) {
@@ -21,7 +21,7 @@ if (!sessionStorage.getItem("cuentaActual")) {
 }
 if (document.getElementById("efectivo")){
   cuentaActual = JSON.parse(sessionStorage.getItem("cuentaActual"))
-  document.getElementById("efectivo").innerText = $ + cuentaActual.efectivo
+  document.getElementById("efectivo").innerText = "$" + cuentaActual.efectivo
 }
 function cuenta(id) {
   this.efectivo = 0;
@@ -127,4 +127,20 @@ if (document.getElementById("btnIngresarTarjeta")) {
     localStorage.setItem("cuentas", JSON.stringify(cuentasUpdate));
     sessionStorage.setItem("cuentaActual", JSON.stringify(cuentasUpdate));
   });
+}
+
+if (document.getElementById("Agregar")) {
+  const btn = document.getElementById("Agregar");
+  const monto_ingreso = document.getElementById("Monto");
+  const tipo_ingreso = document.getElementById("Tipo");
+  const cuenta_ingreso = document.getElementById("cuenta");
+
+  let cuentaActual = JSON.parse(sessionStorage.getItem("cuentaActual"))
+  let sesionActual = JSON.parse(sessionStorage.getItem("sesionActual"));
+  let cuentas = JSON.parse(localStorage.getItem("cuentas"));
+  let cuentasUpdate;
+  btn.addEventListener("click", ()=> {
+    cuentaActual.efectivo += monto_ingreso.value;
+
+  })
 }

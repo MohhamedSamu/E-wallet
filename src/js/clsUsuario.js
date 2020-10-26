@@ -73,9 +73,9 @@ function usuario(
       };
       usuarios = [newUser];
       localStorage.setItem("users", JSON.stringify(usuarios));
-      iniciarSesion(this.contra, this.correo);
-      window.location.replace("./cuentas.html");
     }
+    iniciarSesion(this.contra, this.correo);
+    window.location.replace("./cuentas.html");
   };
 }
 this.iniciarSesion = (contra, correo) => {
@@ -116,27 +116,27 @@ if (document.getElementById("btnRegistrar")) {
     var re = null;
     var bandera = false;
     if (bandera == false){
-      if (this.nombre.value == null || this.nombre.value == "" || this.nombre.value.length == 0) {
+      if (nombre.value == null || nombre.value == "" || nombre.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de nombre");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (this.apellido.value == null || this.apellido.value == "" || apellido.value.length == 0) {
+      if (apellido.value == null || apellido.value == "" || apellido.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Apellido");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (this.correo.value == null || this.correo.value == "" || this.correo.value.length == 0) {
+      if (correo.value == null || correo.value == "" || correo.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de correo");
         bandera = false;
         return 0;
       }else{
         re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/;
-        if (!re.test(this.correo.value))
+        if (!re.test(correo.value))
         {
           alert("El correo es invalido, Ingrese uno correcto");
           bandera = false;
@@ -144,66 +144,66 @@ if (document.getElementById("btnRegistrar")) {
           bandera = true;
         }
       }
-      if (this.telefono.value == null || this.telefono.value == "" || this.telefono.value.length == 0) {
+      if (telefono.value == null || telefono.value == "" || telefono.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Teléfono");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{4}-?[0-9]{4}$/;
-        if (!re.test(this.telefono.value)) {
+        if (!re.test(telefono.value)) {
           alert("El número de teléfono es invalido, Ingrese uno correcto");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (this.direccion.value == null || this.direccion.value == "" || this.direccion.value.length == 0) {
+      if (direccion.value == null || direccion.value == "" || direccion.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Direccion");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (this.dui.value == null || this.dui.value == "" || this.dui.value.length == 0) {
+      if (dui.value == null || dui.value == "" || dui.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de DUI");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{8}-?[0-9]{1}$/;
-        if (!re.test(this.dui.value)) {
+        if (!re.test(dui.value)) {
           alert("El número de DUI es invalido, Ingrese uno correcto, recuerde agregar el guión");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (this.nit.value == null || this.nit.value == "" || this.nit.value.length == 0) {
+      if (nit.value == null || nit.value == "" || nit.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de NIT");
         bandera = false;
         return 0;
       }else{
         re = /^[0-9]{4}-?[0-9]{6}-?[0-9]{3}-?[0-9]{1}$/;
-        if (!re.test(this.nit.value)) {
+        if (!re.test(nit.value)) {
           alert("El número de NIT es invalido, Ingrese uno correcto, recuerde agregar los guiones");
           bandera = false;
         }else{
           bandera = true;
         }
       }
-      if (this.fecha_nacimiento.value == null || this.fecha_nacimiento.value == "" || this.fecha_nacimiento.value.length == 0) {
+      if (fecha_nacimiento.value == null || fecha_nacimiento.value == "" || fecha_nacimiento.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de Fecha de Nacimiento");
         bandera = false;
         return 0;
       }else{
         bandera = true;
       }
-      if (this.password.value == null || this.password.value == "" || this.password.value.length == 0) {
+      if (password.value == null || password.value == "" || password.value.length == 0) {
         alert("No se ha ingresado ningún valor en el campo de contraseña");
         bandera = false;
         return 0;
       } else {
         re = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,15}$/;
-        if (!re.test(this.password.value)) {
+        if (!re.test(password.value)) {
           alert(
             "Su contraseña debe ser de 8 a 15 caracteres y deben incluir una letra mayúscula, minúscula y un numero"
           );
@@ -215,15 +215,15 @@ if (document.getElementById("btnRegistrar")) {
     }
     if (bandera){
       var nuevaCuenta = new usuario(
-        this.nombre.value,
-        this.apellido.value,
-        this.correo.value,
-        this.contrasena.value,
-        this.direccion.value,
-        this.dui.value,
-        this.nit.value,
-        this.telefono.value,
-        this.fecha_nacimiento.value
+        nombre.value,
+        apellido.value,
+        correo.value,
+        contrasena.value,
+        direccion.value,
+        dui.value,
+        nit.value,
+        telefono.value,
+        fecha_nacimiento.value
       );
       nuevaCuenta.guardarCuenta();
     }
@@ -292,7 +292,7 @@ if (document.getElementById("btnIniciarSesion")) {
     e.preventDefault();
     this.iniciarSesion(contraLogin.value, correoLogin.value);
     sesionActual = sessionStorage.getItem("sesionActual")
-    cuentas = localStorage.getItem("cuentas")
+    cuentas = JSON.parse(localStorage.getItem("cuentas"))
     cuentaActual = cuentas.forEach(element => {
       if (element.idusuario === sesionActual.id){
         return element
